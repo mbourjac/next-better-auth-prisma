@@ -11,6 +11,47 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
+  {
+    settings: {
+      'import/parsers': {
+        '@typescript-eslint/parser': ['.ts', '.tsx'],
+      },
+      'import/resolver': {
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
+        typescript: {
+          alwaysTryTypes: true,
+          project: ['**/tsconfig.json'],
+        },
+      },
+    },
+    rules: {
+      'import/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling'],
+          pathGroupsExcludedImportTypes: ['react'],
+          pathGroups: [
+            {
+              pattern: 'react',
+              group: 'builtin',
+              position: 'after',
+            },
+            {
+              pattern: 'next',
+              group: 'external',
+              position: 'before',
+            },
+          ],
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
+    },
+  },
 ];
 
 export default eslintConfig;
