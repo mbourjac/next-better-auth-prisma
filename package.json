@@ -10,6 +10,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "better-auth": "^1.2.7",
     "clsx": "^2.1.1",
     "next": "15.3.1",
     "react": "^19.0.0",
@@ -28,6 +30,7 @@
     "eslint-import-resolver-typescript": "^4.3.4",
     "eslint-plugin-import": "^2.31.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
+    "prisma": "^6.6.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
