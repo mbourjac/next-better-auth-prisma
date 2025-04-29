@@ -6,7 +6,7 @@ const DashboardPage = async () => {
   const session = await auth.api.getSession({ headers: await headers() });
 
   if (!session) {
-    redirect('./log-in');
+    redirect('./sign-in');
   }
 
   return <div>Dashboard</div>;
