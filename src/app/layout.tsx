@@ -20,7 +20,7 @@ const inter = Inter({
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={cn('p-4 antialiased', inter.className)}>{children}</body>
+      <body className={cn('antialiased', inter.className)}>{children}</body>
     </html>
   );
 }

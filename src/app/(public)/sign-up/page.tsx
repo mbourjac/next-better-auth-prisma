@@ -1,5 +1,7 @@
+import { SignUp } from './sign-up';
+
 const SignUpPage = () => {
-  return <div>SignUp</div>;
+  return <SignUp />;
 };
 
 export default SignUpPage;
