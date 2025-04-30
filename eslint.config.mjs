@@ -12,6 +12,9 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
   {
+    ignores: ['**/generated/**'],
+  },
+  {
     settings: {
       'import/parsers': {
         '@typescript-eslint/parser': ['.ts', '.tsx'],
