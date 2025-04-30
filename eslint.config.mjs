@@ -38,11 +38,16 @@ const eslintConfig = [
           pathGroups: [
             {
               pattern: 'react',
-              group: 'builtin',
-              position: 'after',
+              group: 'external',
+              position: 'before',
             },
             {
               pattern: 'next',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: 'next/**',
               group: 'external',
               position: 'before',
             },
