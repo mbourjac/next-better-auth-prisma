@@ -1,3 +1,4 @@
+import { HTMLInputAutoCompleteAttribute, HTMLInputTypeAttribute } from 'react';
 import { FieldPath, FieldValues, UseFormReturn } from 'react-hook-form';
 import {
   FormField,
@@ -12,9 +13,9 @@ interface FormInputProps<T extends FieldValues> {
   form: UseFormReturn<T>;
   name: FieldPath<T>;
   label: string;
-  type?: string;
+  type?: HTMLInputTypeAttribute;
   placeholder?: string;
-  autoComplete?: string;
+  autoComplete?: HTMLInputAutoCompleteAttribute;
 }
 
 export const FormInput = <T extends FieldValues>({

@@ -78,12 +78,14 @@ export const SignUp = () => {
                     name="firstName"
                     label="First name"
                     placeholder="John"
+                    autoComplete="given-name"
                   />
                   <FormInput
                     form={form}
                     name="lastName"
                     label="Last name"
                     placeholder="Doe"
+                    autoComplete="family-name"
                   />
                 </div>
                 <FormInput
@@ -92,6 +94,7 @@ export const SignUp = () => {
                   label="Email"
                   placeholder="john.doe@example.com"
                   type="email"
+                  autoComplete="email"
                 />
                 <FormInput
                   form={form}
