@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import {
@@ -15,8 +14,8 @@ import {
 } from '@/components/ui/card';
 import { signIn } from '@/lib/auth-client';
 import { FormInput } from '../../../components/forms/form-input';
+import { SubmitButton } from '../../../components/forms/submit-button';
 import { CenteredPage } from '../../../components/layout/centered-page';
-import { Button } from '../../../components/ui/button';
 import { Form } from '../../../components/ui/form';
 import { signInSchema, SignIn as SignInType } from './sign-in.schemas';
 
@@ -82,13 +81,7 @@ export const SignIn = () => {
                   placeholder="Password"
                   autoComplete="current-password"
                 />
-                <Button type="submit" className="w-full" disabled={isLoading}>
-                  {isLoading ? (
-                    <Loader2 size={16} className="animate-spin" />
-                  ) : (
-                    'Login'
-                  )}
-                </Button>
+                <SubmitButton isLoading={isLoading}>Login</SubmitButton>
               </div>
             </form>
           </Form>
