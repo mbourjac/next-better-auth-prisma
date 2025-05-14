@@ -15,14 +15,15 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { FormInput } from '../../../components/forms/form-input';
+import { CenteredPage } from '../../../components/layout/centered-page';
 import { Form } from '../../../components/ui/form';
 import { signUp } from '../../../lib/auth-client';
 import { SignUp as SignUpType, signUpSchema } from './sign-up.schemas';
 
 export const SignUp = () => {
   const router = useRouter();
-
   const [isLoading, setIsLoading] = useState(false);
+
   const form = useForm<SignUpType>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -58,8 +59,8 @@ export const SignUp = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center p-4">
-      <Card className="max-w-md rounded-md">
+    <CenteredPage>
+      <Card className="w-[27.25rem] max-w-full rounded-md">
         <CardHeader>
           <CardTitle className="text-lg md:text-xl">
             <h1>Sign Up</h1>
@@ -124,6 +125,6 @@ export const SignUp = () => {
           </Form>
         </CardContent>
       </Card>
-    </div>
+    </CenteredPage>
   );
 };

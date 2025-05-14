@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/card';
 import { signIn } from '@/lib/auth-client';
 import { FormInput } from '../../../components/forms/form-input';
+import { CenteredPage } from '../../../components/layout/centered-page';
 import { Button } from '../../../components/ui/button';
 import { Form } from '../../../components/ui/form';
 import { signInSchema, SignIn as SignInType } from './sign-in.schemas';
@@ -53,7 +54,7 @@ export const SignIn = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center p-4">
+    <CenteredPage>
       <Card className="w-[27.25rem] max-w-full rounded-md">
         <CardHeader>
           <CardTitle className="text-lg md:text-xl">Sign In</CardTitle>
@@ -93,6 +94,6 @@ export const SignIn = () => {
           </Form>
         </CardContent>
       </Card>
-    </div>
+    </CenteredPage>
   );
 };
