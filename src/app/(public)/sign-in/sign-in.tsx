@@ -16,7 +16,14 @@ import { signIn } from '@/lib/auth-client';
 import { FormInput } from '../../../components/forms/form-input';
 import { SubmitButton } from '../../../components/forms/submit-button';
 import { CenteredPage } from '../../../components/layout/centered-page';
-import { Form } from '../../../components/ui/form';
+import { Checkbox } from '../../../components/ui/checkbox';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+} from '../../../components/ui/form';
 import { signInSchema, SignIn as SignInType } from './sign-in.schemas';
 
 export const SignIn = () => {
@@ -28,13 +35,15 @@ export const SignIn = () => {
     defaultValues: {
       email: '',
       password: '',
+      rememberMe: false,
     },
   });
 
-  const onSubmit = async ({ email, password }: SignInType) => {
+  const onSubmit = async ({ email, password, rememberMe }: SignInType) => {
     await signIn.email({
       email,
       password,
+      rememberMe,
       fetchOptions: {
         onRequest: () => {
           setIsLoading(true);
@@ -80,6 +89,26 @@ export const SignIn = () => {
                   type="password"
                   placeholder="Password"
                   autoComplete="current-password"
+                />
+                <FormField
+                  control={form.control}
+                  name="rememberMe"
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className="flex items-center gap-2">
+                        <FormControl>
+                          <Checkbox
+                            checked={field.value}
+                            onCheckedChange={field.onChange}
+                            className="cursor-pointer"
+                          />
+                        </FormControl>
+                        <FormLabel className="cursor-pointer">
+                          Remember me
+                        </FormLabel>
+                      </div>
+                    </FormItem>
+                  )}
                 />
                 <SubmitButton isLoading={isLoading}>Login</SubmitButton>
               </div>
