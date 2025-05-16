@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -17,7 +18,15 @@ import { FormCheckbox } from '../../../components/forms/form-checkbox';
 import { FormInput } from '../../../components/forms/form-input';
 import { SubmitButton } from '../../../components/forms/submit-button';
 import { CenteredPage } from '../../../components/layout/centered-page';
-import { Form } from '../../../components/ui/form';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '../../../components/ui/form';
+import { Input } from '../../../components/ui/input';
 import { signInSchema, SignIn as SignInType } from './sign-in.schemas';
 
 export const SignIn = () => {
@@ -76,13 +85,31 @@ export const SignIn = () => {
                   type="email"
                   autoComplete="email"
                 />
-                <FormInput
-                  form={form}
+                <FormField
+                  control={form.control}
                   name="password"
-                  label="Password"
-                  type="password"
-                  placeholder="Password"
-                  autoComplete="current-password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className="flex justify-between">
+                        <FormLabel>Password</FormLabel>
+                        <Link
+                          href="/reset-password"
+                          className="text-sm underline"
+                        >
+                          Forgot your password?
+                        </Link>
+                      </div>
+                      <FormControl>
+                        <Input
+                          type="text"
+                          placeholder="Password"
+                          autoComplete="current-password"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
                 <FormCheckbox
                   form={form}
