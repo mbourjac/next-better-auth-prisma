@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -9,6 +10,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -119,6 +121,14 @@ export const SignUp = () => {
             </form>
           </Form>
         </CardContent>
+        <CardFooter>
+          <p className="w-full text-center text-sm">
+            Already have an account?{' '}
+            <Link href="/sign-in" className="font-medium underline">
+              Sign in
+            </Link>
+          </p>
+        </CardFooter>
       </Card>
     </CenteredPage>
   );
