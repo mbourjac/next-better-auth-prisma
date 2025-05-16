@@ -12,6 +12,7 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
+  CardFooter,
 } from '@/components/ui/card';
 import { signIn } from '@/lib/auth-client';
 import { FormCheckbox } from '../../../components/forms/form-checkbox';
@@ -121,6 +122,14 @@ export const SignIn = () => {
             </form>
           </Form>
         </CardContent>
+        <CardFooter>
+          <p className="w-full text-center text-sm">
+            Don&apos;t have an account?{' '}
+            <Link href="/sign-up" className="font-medium underline">
+              Sign up
+            </Link>
+          </p>
+        </CardFooter>
       </Card>
     </CenteredPage>
   );
